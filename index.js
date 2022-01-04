@@ -3,6 +3,11 @@ const col = [];
 let mainGrid = "";
 let totalWidth = 500;
 let gridSize = 100;
+let brushdown = false;
+
+mainGrid = document.querySelector(".main-grid");
+
+
 
 //////////////////////// main app //////////////////////////////////////
 const changeSizeBtn = document.querySelector('.changeSizeBtn');
@@ -38,6 +43,15 @@ changeSizeBtn.addEventListener('click', () => {
     const selectAll = document.querySelectorAll(".col");
     selectAll.forEach(function(element) {
       element.setAttribute('style', `width: ${width}; height: ${height}`); /// uses input values for every new grid element
+      element.addEventListener('mousedown', () => {
+          brushdown = true;
+      });
+
+      element.addEventListener('mouseup', () => {
+          brushdown = false;
+      });
+
+
     });
 
 });
@@ -75,6 +89,8 @@ colorPicker.addEventListener('input', () => {
 });
 
 
+
+
 ///////////////////////////////  Creates main grid //////////////////////////////////////
 
 function buildGrid (gridSize) {
@@ -99,7 +115,7 @@ function buildGrid (gridSize) {
         row[i] = document.createElement("div");
         row[i].classList.add('row');
         row[i].classList.add('row' + i);
-        mainGrid = document.querySelector(".main-grid");
+
         mainGrid.appendChild(row[i]);
 
         for (let j = 0; j < gridSize; j++) {
@@ -108,12 +124,28 @@ function buildGrid (gridSize) {
             col[j].classList.add('row' + i +'col' + j);
 
             col[j].addEventListener('mouseover', () => {
+
                 const cell = document.querySelector('.row' + i + 'col' + j);
-                if (colorChosen === 'rainbowBrush') {
-                    cell.style["background-color"] = randomColorGen();
-                } else {
-                    cell.style["background-color"] = colorChosen;
+
+                if(brushdown) {
+                    if (colorChosen === 'rainbowBrush') {
+                        cell.style["background-color"] = randomColorGen();
+                    } else {
+                        cell.style["background-color"] = colorChosen;
+                    }
                 }
+            });
+
+            col[j].addEventListener('click', () => {
+
+                const cell = document.querySelector('.row' + i + 'col' + j);
+
+                    if (colorChosen === 'rainbowBrush') {
+                        cell.style["background-color"] = randomColorGen();
+                    } else {
+                        cell.style["background-color"] = colorChosen;
+                    }
+                
             });
 
             row[i].appendChild(col[j]);
