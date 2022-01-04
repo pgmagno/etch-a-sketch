@@ -10,30 +10,37 @@
 
 <body>
 
+
+
     <div class="main-app">
 
         <h1>Etch-a-Sketch</h1>
 
         <div class="controls">
-            <h2>Controls</h2>
+            <h3>Controls</h3>
             <label for="width">No. of ⬛: </label>
             <input type="text" name="" value="100" class='width'>
-            <button type="button" name="button" class='changeSizeBtn'>Apply</button>
+            <button type="button" name="button" class='changeSizeBtn btn'>Apply</button>
             <div class="color-picker">
                 <form action="/action_page.php">
-                    <label for="favcolor">Pick a color:</label>
-                    <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+                    <label for="favcolor">Pick a color: </label>
+                    <input type="color" id="favcolor" name="favcolor" value="#000000">
+                    <div class="">
+                        <label for="">Presets: </label>
+                        <button type="button" name="button" class='btn btn-black'>Original</button>
+                        <button type="button" name="button" class='btn btn-rainbow'>Rainbow</button>
+                    </div>
+
                 </form>
             </div>
-
-
         </div>
-
-        <div class="main-grid">
-
+        <div class="outer-border">
+            <div class="main-grid">
+            </div>
         </div>
 
     </div>
+
 
 </body>
 

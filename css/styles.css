@@ -1,6 +1,24 @@
 body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    height: 100vh;
+    background-color: #fff7fc;
+    opacity: 1;
+    background-image: linear-gradient(#ffd3d3 1.8px, transparent 1.8px), linear-gradient(90deg, #ffd3d3 1.8px, transparent 1.8px), linear-gradient(#ffd3d3 0.9px, transparent 0.9px), linear-gradient(90deg, #ffd3d3 0.9px, #fff7fc 0.9px);
+    background-size: 45px 45px, 45px 45px, 9px 9px, 9px 9px;
+    background-position: -1.8px -1.8px, -1.8px -1.8px, -0.9px -0.9px, -0.9px -0.9px;
+}
+
+h1 {
+    background-color: white;
+    border: dotted #FE7E6D 5px;
+    color: #FE7E6D;
+    padding: 10px;
+}
+
+h3 {
+    color: #FE7E6D;
+    font-size: 25px;
 }
 
 .row {
@@ -13,12 +31,59 @@ body {
 }
 
 .main-grid {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(135deg, rgba(2, 0, 36, 1) 0%, rgba(191, 191, 191, 1) 0%, rgba(174, 185, 185, 1) 100%);
     margin: auto;
     width: 500px;
     height: 500px;
-    border: solid 5px blue;
+    border: outset 1px #222;
 }
 
-.color-picker {
-    margin: 10px;
+.outer-border {
+    border: outset 50px red;
+    border-radius: 25px;
+    width: 500px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.controls {
+    border: solid #FE7E6D 1px;
+    border-radius: 5px;
+    background-color: #FEECE9;
+    font-size: 20px;
+    color: #FE7E6D;
+    padding: 15px;
+    margin: auto;
+}
+
+.width, .btn {
+    padding: 15px;
+    font-size: 20px;
+    color: #2F3A8F;
+    background-color: #CCD1E4;
+    margin: 15px 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-black {
+    color: white;
+    background-color: #444444;
+}
+
+.btn-rainbow {
+    color: white;
+    background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+}
+
+#favcolor {
+    color: #2F3A8F;
+    background-color: #CCD1E4;
+    border: none;
+}
+
+h3, form, .color-picker, .controls {
+    margin: auto;
+    display: table;
 }
