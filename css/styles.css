@@ -2,23 +2,30 @@ body {
     font-family: 'Roboto', sans-serif;
     text-align: center;
     height: 100vh;
-    background-color: #fff7fc;
+    background-color: #e8e8e8;
     opacity: 1;
-    background-image: linear-gradient(#ffd3d3 1.8px, transparent 1.8px), linear-gradient(90deg, #ffd3d3 1.8px, transparent 1.8px), linear-gradient(#ffd3d3 0.9px, transparent 0.9px), linear-gradient(90deg, #ffd3d3 0.9px, #fff7fc 0.9px);
-    background-size: 45px 45px, 45px 45px, 9px 9px, 9px 9px;
-    background-position: -1.8px -1.8px, -1.8px -1.8px, -0.9px -0.9px, -0.9px -0.9px;
+    background-image: linear-gradient(#c2c2c2 0.7000000000000001px, transparent 0.7000000000000001px), linear-gradient(to right, #c2c2c2 0.7000000000000001px, #e8e8e8 0.7000000000000001px);
+    background-size: 14px 14px;
 }
 
-h1 {
-    background-color: white;
-    border: dotted #FE7E6D 5px;
-    color: #FE7E6D;
-    padding: 10px;
+.gold {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(to right,
+            #cb9b51 0,
+            #f6e27a 45%,
+            #f6f2c0 50%,
+            #f6e27a 55%,
+            #cb9b51 100%);
+    color: transparent;
+    -webkit-background-clip: text;
 }
 
-h3 {
-    color: #FE7E6D;
-    font-size: 25px;
+.cursive {
+    font-family: 'Caveat', cursive;
+    font-weight: bold;
+    font-size: 45px;
 }
 
 .row {
@@ -36,23 +43,23 @@ h3 {
     margin: auto;
     width: 500px;
     height: 500px;
-    border: outset 1px #222;
+    border: inset 2px #DC143C;
+    border-radius: 5px;
+    margin-bottom: 25px;
 }
 
 .outer-border {
-    border: outset 50px red;
+    border: outset 50px #DC143C;
     border-radius: 25px;
-    width: 500px;
+    width: 600px;
     margin: auto;
     margin-top: 20px;
+    background-color: #DC143C;
 }
 
 .controls {
-    border: solid #FE7E6D 1px;
-    border-radius: 5px;
-    background-color: #FEECE9;
     font-size: 20px;
-    color: #FE7E6D;
+    color: white;
     padding: 15px;
     margin: auto;
 }
@@ -70,16 +77,25 @@ h3 {
 .btn-black {
     color: white;
     background-color: #444444;
+    padding: 20px;
+    border-radius: 50px;
 }
 
 .btn-rainbow {
-    color: white;
-    background-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+    font-weight: bold;
+    padding: 20px;
+    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+    border-radius: 50px;
+}
+
+.presets {
+    display: flex;
+    align-items: center;
 }
 
 #favcolor {
     color: #2F3A8F;
-    background-color: #CCD1E4;
+    background-color: transparent;
     border: none;
 }
 

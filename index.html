@@ -5,36 +5,44 @@
     <meta charset="utf-8">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:ital,wght@1,500&display=swap" rel="stylesheet">
     <script src="./index.js" charset="utf-8" defer></script>
 </head>
 
 <body>
 
 
+    <div class="outer-border">
+        <div class="main-app">
 
-    <div class="main-app">
+            <h1 class="gold">Magic <span class="gold cursive">Etch-a-Sketch</span> Screen</h1>
 
-        <h1>Etch-a-Sketch</h1>
+            <div class="controls">
+                <h3>Controls</h3>
+                <label for="width">No. of ⬛: </label>
+                <input type="text" name="" value="100" class='width'>
+                <button type="button" name="button" class='changeSizeBtn btn'>Apply</button>
+                <div class="color-picker">
+                    <form action="/action_page.php">
+                        <label for="favcolor">Pick a color: </label>
+                        <input type="color" id="favcolor" name="favcolor" value="#000000">
+                        <div class="presets">
+                            <label for="">Presets: </label>
+                            <button type="button" name="button" class='btn btn-black'></button>
 
-        <div class="controls">
-            <h3>Controls</h3>
-            <label for="width">No. of ⬛: </label>
-            <input type="text" name="" value="100" class='width'>
-            <button type="button" name="button" class='changeSizeBtn btn'>Apply</button>
-            <div class="color-picker">
-                <form action="/action_page.php">
-                    <label for="favcolor">Pick a color: </label>
-                    <input type="color" id="favcolor" name="favcolor" value="#000000">
-                    <div class="">
-                        <label for="">Presets: </label>
-                        <button type="button" name="button" class='btn btn-black'>Original</button>
-                        <button type="button" name="button" class='btn btn-rainbow'>Rainbow</button>
-                    </div>
+                            <button type="button" name="button" class='btn btn-rainbow'></button>
 
-                </form>
+
+
+                        </div>
+
+                    </form>
+                </div>
             </div>
-        </div>
-        <div class="outer-border">
+
             <div class="main-grid">
             </div>
         </div>
