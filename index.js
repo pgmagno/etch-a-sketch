@@ -7,30 +7,16 @@ let brushdown = false;
 
 mainGrid = document.querySelector(".main-grid");
 
-
+applyChanges();
 
 //////////////////////// main app //////////////////////////////////////
-const changeSizeBtn = document.querySelector('.changeSizeBtn');
 
-changeSizeBtn.addEventListener('click', () => {
+function applyChanges () {
 
     const widthInput = document.querySelector(".width");
 
-///////////////////// tests if the input size is valid /////////////////
-
-    if(widthInput.value > 100 || widthInput.value < 1) {
-        const msg = document.createElement('h3');
-        msg.textContent = "Invalid Input. Default values set (100). Wait";
-        const controls = document.querySelector('.controls');
-        controls.appendChild(msg);
-        gridSize = 100;
-        setTimeout( () => {
-            controls.removeChild(msg);
-        },2000);
-
-    } else {
+            //
         gridSize = widthInput.value;
-    }
 
 ////////////////// being valid, calculates the grid, destroy previous, creates new one /////////
 
@@ -54,7 +40,7 @@ changeSizeBtn.addEventListener('click', () => {
 
     });
 
-});
+}
 
 
 
@@ -75,40 +61,64 @@ let colorModeSelected = 'blackBrush';
 const blackBtn = document.querySelector('.btn-black');
 blackBtn.addEventListener('click', () => {
     colorModeSelected = 'blackBrush';
+    blackBtn.classList.add('btn-pressed');
+    rainbowBtn.classList.remove('btn-pressed');
+    eraserBtn.classList.remove('btn-pressed');
+
 });
 
 const rainbowBtn = document.querySelector('.btn-rainbow');
 rainbowBtn.addEventListener('click', () => {
     colorModeSelected = 'rainbowBrush';
+    blackBtn.classList.remove('btn-pressed');
+    eraserBtn.classList.remove('btn-pressed');
+    rainbowBtn.classList.add('btn-pressed');
 });
 
 const colorPicker = document.querySelector('#favcolor');
-colorPicker.addEventListener('input', () => {
+colorPicker.addEventListener('change', () => {
     colorModeSelected = 'customBrush';
 
 });
 
+const eraserBtn = document.querySelector('.btn-eraser');
+eraserBtn.addEventListener('click', () => {
+    colorModeSelected = 'eraser';
+    blackBtn.classList.remove('btn-pressed');
+    rainbowBtn.classList.remove('btn-pressed');
+    eraserBtn.classList.add('btn-pressed');
+});
 
 
+//////////////// Color Selector //////////////////////
+
+function colorSelect() {
+
+
+switch (colorModeSelected) {
+    case 'blackBrush':
+        colorChosen = '#444444';
+        break;
+    case 'rainbowBrush':
+        colorChosen = 'rainbowBrush';
+        break;
+    case 'customBrush':
+        colorChosen = colorPicker.value;
+        break;
+    case 'eraser':
+        colorChosen = '';
+        break;
+
+    default:
+    console.log("problem choosing color");
+}
+}
 
 ///////////////////////////////  Creates main grid //////////////////////////////////////
 
 function buildGrid (gridSize) {
 
-    switch (colorModeSelected) {
-        case 'blackBrush':
-            colorChosen = '#444444';
-            break;
-        case 'rainbowBrush':
-            colorChosen = 'rainbowBrush';
-            break;
-        case 'customBrush':
-            colorChosen = colorPicker.value;
-            break;
 
-        default:
-        console.log("problem choosing color");
-    }
 
 
     for (let i = 0; i < gridSize; i++) {
@@ -128,6 +138,9 @@ function buildGrid (gridSize) {
                 const cell = document.querySelector('.row' + i + 'col' + j);
 
                 if(brushdown) {
+
+                    colorSelect();
+
                     if (colorChosen === 'rainbowBrush') {
                         cell.style["background-color"] = randomColorGen();
                     } else {
@@ -140,12 +153,14 @@ function buildGrid (gridSize) {
 
                 const cell = document.querySelector('.row' + i + 'col' + j);
 
+                    colorSelect()
+
                     if (colorChosen === 'rainbowBrush') {
                         cell.style["background-color"] = randomColorGen();
                     } else {
                         cell.style["background-color"] = colorChosen;
                     }
-                
+
             });
 
             row[i].appendChild(col[j]);
@@ -165,3 +180,82 @@ function randomColorGen () {
 
     return finalColor;
 }
+
+/////////////////////// grid size /////////////////////////
+
+const widthValue = document.querySelector('.width');
+const widthValueDisplay = document.querySelector('.width-value');
+
+widthValue.addEventListener("input", () => {
+    widthValueDisplay.textContent = widthValue.value;
+
+});
+
+widthValue.addEventListener("change", () => {
+    applyChanges();
+});
+
+//////////////////// clear everything WARNING //////////////////////
+
+const clearBtn = document.querySelector('.clear-btn');
+const warning = document.createElement('div');
+const warningMsg = document.createElement('h3');
+const confirm = document.createElement('button');
+const escape = document.createElement('button');
+const controlsDiv = document.querySelector('.controls');
+
+clearBtn.addEventListener('click', () => {
+
+
+    warning.classList.add('warning');
+
+    warningMsg.classList.add('warning-msg');
+
+    warningMsg.textContent = 'Do you want to discard changes?';
+
+
+    confirm.textContent = 'Ok';
+    confirm.classList.add('warning-btn');
+
+
+    escape.textContent = 'Cancel';
+    escape.classList.add('warning-btn');
+
+    warning.appendChild(warningMsg);
+    warning.appendChild(confirm);
+    warning.appendChild(escape);
+
+    controlsDiv.appendChild(warning);
+
+});
+
+confirm.addEventListener('click', () => {
+    destroyGrid();
+    applyChanges();
+    removeWarning();
+});
+
+escape.addEventListener('click', () => {
+    removeWarning();
+
+})
+
+
+function removeWarning() {
+    controlsDiv.removeChild(warning);
+}
+
+///////////////// enable borders around divs (photoshop-like grid) //////////
+
+function drawGridBorders () {
+    const grid = document.querySelectorAll('.col');
+    grid.forEach(function(element) {
+        element.classList.toggle('gridborders');
+
+    });
+}
+
+const gridBtn = document.querySelector('.grid-btn');
+gridBtn.addEventListener('click', () => {
+    drawGridBorders();
+});

@@ -1,5 +1,6 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-style: normal;
     text-align: center;
     height: 100vh;
     background-color: #e8e8e8;
@@ -10,6 +11,7 @@ body {
 
 .gold {
     font-family: 'Nunito', sans-serif;
+    font-style: italic;
     padding: 0;
     margin: 0;
     background-image: linear-gradient(to right,
@@ -20,6 +22,9 @@ body {
             #cb9b51 100%);
     color: transparent;
     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-filter: drop-shadow(2px 2px #333);
+    filter: drop-shadow(1px 1px #333);
 }
 
 .cursive {
@@ -38,68 +43,199 @@ body {
 }
 
 .main-grid {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(135deg, rgba(2, 0, 36, 1) 0%, rgba(191, 191, 191, 1) 0%, rgba(174, 185, 185, 1) 100%);
-    margin: auto;
+    background: rgb(209, 209, 209);
+    background: linear-gradient(135deg, rgba(209, 209, 209, 1) 0%, rgba(156, 156, 156, 1) 100%);
+    margin: 25px auto;
     width: 500px;
     height: 500px;
     border: inset 2px #DC143C;
     border-radius: 5px;
-    margin-bottom: 25px;
+}
+
+.main-app {
+    margin: 25px 0;
+    border-radius: 15px;
 }
 
 .outer-border {
-    border: outset 50px #DC143C;
+    border: outset 35px #d40e35;
     border-radius: 25px;
     width: 600px;
     margin: auto;
     margin-top: 20px;
-    background-color: #DC143C;
+    background: #DC143C;
+    padding-bottom: 15px;
 }
 
 .controls {
     font-size: 20px;
     color: white;
-    padding: 15px;
+    padding: 15px 0 0;
     margin: auto;
 }
 
-.width, .btn {
+.width-value {
+    display: inline-block;
+    width: 35px;
+}
+
+.slider {
+    padding: 0;
+    width: 150px;
+    -webkit-appearance: none;
+    height: 10px;
+    border-radius: 5px;
+    background: #CCD1E4;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: linear-gradient(to right,
+            #cb9b51 0,
+            #f6e27a 45%,
+            #f6f2c0 50%,
+            #f6e27a 55%,
+            #cb9b51 100%);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #aaa;
+    box-shadow: 2px 1px 5px 0px #444;
+    margin: 0 2px;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.btn-pressed {
+    background: radial-gradient(#f6f2c0,
+            #f6e27a,
+            #cb9b51);
+    box-shadow: 2px 1px 10px 2px gold, -2px -1px 10px 2px gold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+h3 {
+    margin: 0;
+}
+
+img {
+    width: 25px;
+}
+
+table {
+    margin: 10px auto 0;
+}
+
+td, .misc-cell {
+    padding: 0 15px;
+}
+
+.controls {
+    text-align: center;
+    background: rgb(190, 8, 39);
+    background: linear-gradient(315deg, rgba(190, 8, 39, 1) 0%, rgba(212, 14, 48, 1) 100%);
+    display: table;
+    margin: 15px auto 0;
+    padding: 15px 0;
+    border: inset 2px #d40e35;
+    border-radius: 5px;
+    width: 500px;
+    transition: height 2s;
+}
+
+.gridborders {
+    box-shadow: inset 0px 0px 0px 1px #444;
+}
+
+.warning {
     padding: 15px;
-    font-size: 20px;
-    color: #2F3A8F;
-    background-color: #CCD1E4;
-    margin: 15px 5px;
+    display: block;
+    margin: 15px auto 0;
+    width: 350px;
+    background-color: rgb(190, 8, 39);
+    border-radius: 5px;
+    border: 1px solid rgba(235, 14, 48, 1);
+    box-shadow: 1px 1px 10px 1px rgba(150, 8, 39, 0.9);
+    transition: height .5s;
+}
+
+.hidden {
+    height: 0;
+}
+
+.warning-msg {
+    text-align: center;
+    margin: 0 0 5px;
+}
+
+.warning-btn {
+    margin: 0 5px;
+    padding: 10px;
+    font-size: 18px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: rgb(209, 209, 209);
+    color: black;
 }
 
-.btn-black {
-    color: white;
-    background-color: #444444;
-    padding: 20px;
-    border-radius: 50px;
-}
-
-.btn-rainbow {
-    font-weight: bold;
-    padding: 20px;
-    background-image: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
-    border-radius: 50px;
-}
-
-.presets {
+.misc-cell {
     display: flex;
     align-items: center;
 }
 
-#favcolor {
-    color: #2F3A8F;
-    background-color: transparent;
+.color-picker-label-div {
+    height: 50px;
+    padding: 0 5px;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    background-color: #e8e8e8;
+    border-radius: 50px;
+    border: 2px solid #aaa;
+    box-shadow: 2px 1px 5px 0px #444;
+}
+
+.color-picker-label {
+    margin-right: 5px;
+}
+
+.favcolor {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border: 2px solid #aaa;
+    box-shadow: none;
+}
+
+.favcolor::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.favcolor::-webkit-color-swatch {
     border: none;
 }
 
-h3, form, .color-picker, .controls {
+footer {
+    color: white;
+    width: 500px;
     margin: auto;
-    display: table;
+}
+
+footer .gold {
+    line-height: 1;
+    text-decoration: none;
+    font-style: normal;
+    font-size: 20px;
 }

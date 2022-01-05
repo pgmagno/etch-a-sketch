@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Nunito:ital@0;1&display=swap" rel="stylesheet">
     <script src="./index.js" charset="utf-8" defer></script>
 </head>
 
@@ -22,32 +21,69 @@
 
             <div class="controls">
                 <h3>Controls</h3>
-                <label for="width">No. of ⬛: </label>
-                <input type="text" name="" value="100" class='width'>
-                <button type="button" name="button" class='changeSizeBtn btn'>Apply</button>
-                <div class="color-picker">
-                    <form action="/action_page.php">
-                        <label for="favcolor">Pick a color: </label>
-                        <input type="color" id="favcolor" name="favcolor" value="#000000">
-                        <div class="presets">
-                            <label for="">Presets: </label>
-                            <button type="button" name="button" class='btn btn-black'></button>
-
-                            <button type="button" name="button" class='btn btn-rainbow'></button>
+                <label for="width">No. of ⬜: </label>
+                <input type="range" min="1" max="100" value="50" class='width slider'>
+                <span class='width-value'>50</span>
 
 
+                <table>
+                    <tr>
+                        <th>Draw</th>
+                        <th>Erase</th>
+                        <th>Misc. Tools</th>
 
-                        </div>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button type="button" name="button" class='btn btn-black'><img src="./images/paint-brush.png" alt=""></button>
+                            <button type="button" name="button" class='btn btn-rainbow'><img src="./images/rainbow.png" alt=""></button>
 
-                    </form>
-                </div>
-            </div>
+                        </td>
+                        <td>
+                            <button type="button" name="button" class='btn btn-eraser'><img src="./images/eraser.png" alt=""></button>
+                            <button type="button" name="button" class="btn clear-btn"><img src="./images/delete.png" alt=""></button>
 
-            <div class="main-grid">
+                        </td>
+
+                        <td class='misc-cell'>
+                            <div class="color-picker-label-div">
+                                <img src="./images/color-circle.png" alt="" class='color-picker-label'></button>
+                                <input type="color" id="favcolor" class="btn favcolor" name="favcolor" value="#000000">
+                            </div>
+
+
+
+
+
+
+
+
+                            <button type="button" name="button" class="btn grid-btn"><img src="./images/grid.png" alt=""></button>
+                        </td>
+                    </tr>
+                </table>
+
+
+
             </div>
         </div>
 
+        <div class="main-grid">
+        </div>
+
+        <footer>
+            Icons made by <a class="gold" href="https://www.flaticon.com/authors/kiranshastry" title="Kiranshastry">Kiranshastry</a>, <a class="gold" href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">Golubev</a>,
+            <a href="https://www.freepik.com" class="gold" title="Freepik">Freepik</a> and <a class="gold" href="" title="mynamepong">mynamepong</a> from <a class="gold" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+
+            <p class="footer">Copyright &copy; <script>
+                    document.write(new Date().getFullYear())
+                </script>
+                <a href="https://github.com/pgmagno" class="gold"> PGS Magno</a> All Rights Reserved
+            </p>
+
+        </footer>
     </div>
+
 
 
 </body>
