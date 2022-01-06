@@ -120,6 +120,7 @@ body {
     border: 2px solid #aaa;
     box-shadow: 2px 1px 5px 0px #444;
     margin: 0 2px;
+    transition: box-shadow 0.4s;
 }
 
 .btn:hover {
