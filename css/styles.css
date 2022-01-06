@@ -258,21 +258,16 @@ p {
 
 .pgsmagno {
     font-weight: bold;
-}
-
-footer .gold, a {
     text-decoration: none;
+    text-shadow: none;
     font-style: normal;
-    font-size: 20px;
+    font-size: 25px;
+    font-family: "Caveat", sans-serif;
 }
 
-.credit, .credit a {
-    margin: 0;
-    font-style: italic;
-    color: rgba(100, 8, 39, 0.9);
+footer, a {
+    margin: 15px auto 0;
+    color: rgb(220, 20, 60);
     font-size: 18px;
-}
-
-.credit a {
-    font-weight: bold;
+    text-shadow: 1px 1px 1px rgb(128, 8, 32), -1px -1px rgba(240, 86, 117);
 }
