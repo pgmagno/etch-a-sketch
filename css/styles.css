@@ -236,13 +236,14 @@ td, .misc-cell {
 
 /* Horizontal Rulers */
 hr {
-    border-color: rgb(190, 8, 39);
+    border: rgb(190, 8, 39) inset 1px;
     margin: 5px auto;
+    height: 1px;
+    width: 500px;
+    border-radius: 5px;
 }
 
-.hr-1 {
-    width: 500px;
-}
+.hr-1 {}
 
 /* footer area */
 footer {
