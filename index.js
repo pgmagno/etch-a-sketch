@@ -102,7 +102,7 @@ function colorSelect() {
 
 switch (colorModeSelected) {
     case 'blackBrush':
-        colorChosen = '#444444';
+        colorChosen = colorPicker.value;
         break;
     case 'rainbowBrush':
         colorChosen = 'rainbowBrush';
