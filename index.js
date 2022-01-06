@@ -8,7 +8,11 @@ let brushdown = false;
 mainGrid = document.querySelector(".main-grid");
 
 applyChanges();
-setTimeout(drawGridBorders,1000);
+setTimeout(() => {
+    drawGridBorders();
+    blackBtn.classList.add("btn-pressed");
+}
+    ,1000);
 
 //////////////////////// main app //////////////////////////////////////
 
@@ -189,7 +193,7 @@ const widthValueDisplay = document.querySelector('.width-value');
 
 widthValue.addEventListener("input", () => {
     widthValueDisplay.textContent = `${widthValue.value} x ${widthValue.value}`;
-    
+
 
 });
 
