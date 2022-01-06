@@ -8,6 +8,7 @@ let brushdown = false;
 mainGrid = document.querySelector(".main-grid");
 
 applyChanges();
+setTimeout(drawGridBorders,1000);
 
 //////////////////////// main app //////////////////////////////////////
 
@@ -26,6 +27,7 @@ function applyChanges () {
     destroyGrid(); //// destroys
     buildGrid(gridSize);   //// creates
 
+
     const selectAll = document.querySelectorAll(".col");
     selectAll.forEach(function(element) {
       element.setAttribute('style', `width: ${width}; height: ${height}`); /// uses input values for every new grid element
@@ -39,7 +41,6 @@ function applyChanges () {
 
 
     });
-
 }
 
 
@@ -193,6 +194,7 @@ widthValue.addEventListener("input", () => {
 
 widthValue.addEventListener("change", () => {
     applyChanges();
+    drawGridBorders();
 });
 
 //////////////////// clear everything WARNING //////////////////////
@@ -204,28 +206,26 @@ const confirm = document.createElement('button');
 const escape = document.createElement('button');
 const controlsDiv = document.querySelector('.controls');
 
+warning.classList.add('warning');
+warning.classList.add('hidden');
+
+warningMsg.classList.add('warning-msg');
+warningMsg.textContent = 'Do you want to discard changes?';
+
+confirm.textContent = 'Yes';
+confirm.classList.add('warning-btn');
+
+escape.textContent = 'Cancel';
+escape.classList.add('warning-btn');
+
 clearBtn.addEventListener('click', () => {
-
-
-    warning.classList.add('warning');
-
-    warningMsg.classList.add('warning-msg');
-
-    warningMsg.textContent = 'Do you want to discard changes?';
-
-
-    confirm.textContent = 'Ok';
-    confirm.classList.add('warning-btn');
-
-
-    escape.textContent = 'Cancel';
-    escape.classList.add('warning-btn');
 
     warning.appendChild(warningMsg);
     warning.appendChild(confirm);
     warning.appendChild(escape);
 
     controlsDiv.appendChild(warning);
+    warning.classList.toggle('hidden');
 
 });
 
@@ -233,29 +233,38 @@ confirm.addEventListener('click', () => {
     destroyGrid();
     applyChanges();
     removeWarning();
+    drawGridBorders();
 });
 
-escape.addEventListener('click', () => {
-    removeWarning();
-
-})
+escape.addEventListener('click', removeWarning);
 
 
 function removeWarning() {
-    controlsDiv.removeChild(warning);
+    warning.classList.add('hidden');
 }
 
 ///////////////// enable borders around divs (photoshop-like grid) //////////
 
-function drawGridBorders () {
-    const grid = document.querySelectorAll('.col');
-    grid.forEach(function(element) {
-        element.classList.toggle('gridborders');
 
+
+function drawGridBorders () {
+    const gridCells = document.querySelectorAll('.col');
+
+    gridCells.forEach(function(element) {
+        element.classList.add('gridborders');
     });
+
+    gridBtn.classList.add('btn-pressed');
 }
 
 const gridBtn = document.querySelector('.grid-btn');
+
 gridBtn.addEventListener('click', () => {
-    drawGridBorders();
+
+    gridBtn.classList.toggle('btn-pressed');
+
+    const gridCells = document.querySelectorAll('.col');
+        gridCells.forEach(function(element) {
+            element.classList.toggle('gridborders');
+        });
 });

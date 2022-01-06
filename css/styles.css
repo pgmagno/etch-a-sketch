@@ -42,19 +42,24 @@ body {
     height: 15px;
 }
 
+.col:hover {
+    outline: solid 1px black;
+}
+
 .main-grid {
     background: rgb(209, 209, 209);
     background: linear-gradient(135deg, rgba(209, 209, 209, 1) 0%, rgba(156, 156, 156, 1) 100%);
-    margin: 25px auto;
+    margin: 25px auto 10px;
     width: 500px;
     height: 500px;
     border: inset 2px #DC143C;
     border-radius: 5px;
+    cursor: crosshair;
+    overflow: hidden;
 }
 
 .main-app {
-    margin: 25px 0;
-    border-radius: 15px;
+    margin: 15px 0 25px;
 }
 
 .outer-border {
@@ -151,7 +156,7 @@ td, .misc-cell {
     border: inset 2px #d40e35;
     border-radius: 5px;
     width: 500px;
-    transition: height 2s;
+    transition: all 0.4s ease-in-out;
 }
 
 .gridborders {
@@ -167,11 +172,13 @@ td, .misc-cell {
     border-radius: 5px;
     border: 1px solid rgba(235, 14, 48, 1);
     box-shadow: 1px 1px 10px 1px rgba(150, 8, 39, 0.9);
-    transition: height .5s;
+    transition: all 0.4s ease-in-out;
 }
 
 .hidden {
     height: 0;
+    display: none;
+    transition: all 0.4s ease-in-out;
 }
 
 .warning-msg {
@@ -227,14 +234,32 @@ td, .misc-cell {
     border: none;
 }
 
+/* Horizontal Rulers */
+hr {
+    border-color: rgb(190, 8, 39);
+    margin: 5px auto;
+}
+
+.hr-1 {
+    width: 500px;
+}
+
+/* footer area */
 footer {
     color: white;
     width: 500px;
     margin: auto;
 }
 
-footer .gold {
+p {
     line-height: 1;
+}
+
+.pgsmagno {
+    font-weight: bold;
+}
+
+footer .gold {
     text-decoration: none;
     font-style: normal;
     font-size: 20px;
