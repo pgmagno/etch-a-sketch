@@ -81,10 +81,12 @@ body {
 
 .width-value {
     display: inline-block;
-    width: 100px;
+    width: 130px;
+    text-align: center;
 }
 
 .slider {
+    margin: auto 10px;
     padding: 0;
     width: 150px;
     -webkit-appearance: none;
@@ -111,6 +113,7 @@ body {
 }
 
 .btn {
+    background-color: #e8e8e8;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -127,8 +130,8 @@ body {
     background: radial-gradient(#f6f2c0,
             #f6e27a,
             #cb9b51);
-    box-shadow: 2px 1px 10px 2px gold, -2px -1px 10px 2px gold;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 2px 1px 25px 1px rgba(255, 255, 255, 0.4), -2px -1px 25px 1px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s;
 }
 
 #controls-title {
@@ -164,7 +167,6 @@ td, .misc-cell {
     border: inset 2px #d40e35;
     border-radius: 5px;
     width: 500px;
-    transition: all 0.4s ease-in-out;
 }
 
 .gridborders {
@@ -179,11 +181,13 @@ td, .misc-cell {
     background-color: rgb(190, 8, 39);
     border: 2px outset #d40e35;
     border-radius: 10px;
+    transition: all 0.4s ease-in-out;
 }
 
 .hidden {
     height: 0;
     display: none;
+    overflow: hidden;
     transition: all 0.4s ease-in-out;
 }
 

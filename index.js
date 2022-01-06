@@ -216,12 +216,15 @@ warning.classList.add('hidden');
 
 warningMsg.classList.add('warning-msg');
 warningMsg.textContent = 'Do you want to discard changes?';
+warningMsg.classList.add('embossed');
 
 confirm.textContent = 'Yes';
 confirm.classList.add('warning-btn');
+confirm.classList.add('embossed');
 
 escape.textContent = 'Cancel';
 escape.classList.add('warning-btn');
+escape.classList.add('embossed');
 
 clearBtn.addEventListener('click', () => {
 
