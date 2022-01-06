@@ -81,7 +81,7 @@ body {
 
 .width-value {
     display: inline-block;
-    width: 35px;
+    width: 100px;
 }
 
 .slider {
@@ -249,19 +249,30 @@ hr {
 footer {
     color: white;
     width: 500px;
-    margin: auto;
+    margin: 15px auto 5px;
 }
 
 p {
-    line-height: 1;
+    margin: 0 auto;
 }
 
 .pgsmagno {
     font-weight: bold;
 }
 
-footer .gold {
+footer .gold, a {
     text-decoration: none;
     font-style: normal;
     font-size: 20px;
+}
+
+.credit, .credit a {
+    margin: 0;
+    font-style: italic;
+    color: rgba(100, 8, 39, 0.9);
+    font-size: 18px;
+}
+
+.credit a {
+    font-weight: bold;
 }

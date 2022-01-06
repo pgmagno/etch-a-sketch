@@ -188,7 +188,8 @@ const widthValue = document.querySelector('.width');
 const widthValueDisplay = document.querySelector('.width-value');
 
 widthValue.addEventListener("input", () => {
-    widthValueDisplay.textContent = widthValue.value;
+    widthValueDisplay.textContent = `${widthValue.value} x ${widthValue.value}`;
+    
 
 });
 
