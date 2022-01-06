@@ -89,9 +89,9 @@ body {
     width: 150px;
     -webkit-appearance: none;
     height: 10px;
-    border-radius: 5px;
-    background: #CCD1E4;
-    outline: none;
+    border-radius: 10px;
+    background: rgb(128, 8, 32);
+    border: inset rgb(220, 20, 60) 2px;
 }
 
 .slider::-webkit-slider-thumb {
@@ -107,6 +107,7 @@ body {
             #cb9b51 100%);
     border-radius: 50%;
     cursor: pointer;
+    box-shadow: 1px 1px 5px 1px black;
 }
 
 .btn {
@@ -130,8 +131,9 @@ body {
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-h3 {
-    margin: 0;
+#controls-title {
+    margin: 0 auto 10px;
+    font-size: 25px;
 }
 
 img {
@@ -139,11 +141,17 @@ img {
 }
 
 table {
-    margin: 10px auto 0;
+    margin: 15px auto 0;
+}
+
+td {
+    margin: 0 5px;
 }
 
 td, .misc-cell {
-    padding: 0 15px;
+    padding: 10px 10px;
+    border: 2px outset #d40e35;
+    border-radius: 10px;
 }
 
 .controls {
@@ -169,10 +177,8 @@ td, .misc-cell {
     margin: 15px auto 0;
     width: 350px;
     background-color: rgb(190, 8, 39);
-    border-radius: 5px;
-    border: 1px solid rgba(235, 14, 48, 1);
-    box-shadow: 1px 1px 10px 1px rgba(150, 8, 39, 0.9);
-    transition: all 0.4s ease-in-out;
+    border: 2px outset #d40e35;
+    border-radius: 10px;
 }
 
 .hidden {
@@ -190,10 +196,14 @@ td, .misc-cell {
     margin: 0 5px;
     padding: 10px;
     font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: rgb(209, 209, 209);
-    color: black;
+    border: 2px outset #d40e35;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+
+.warning-btn:active {
+    border: 2px inset #d40e35;
 }
 
 .misc-cell {
@@ -252,10 +262,6 @@ footer {
     margin: 15px auto 5px;
 }
 
-p {
-    margin: 0 auto;
-}
-
 .pgsmagno {
     font-weight: bold;
     text-decoration: none;
@@ -265,9 +271,24 @@ p {
     font-family: "Caveat", sans-serif;
 }
 
-footer, a {
+footer, footer p {
     margin: 15px auto 0;
+    font-size: 16px;
+}
+
+footer p {
+    margin: 0 auto;
+}
+
+footer, a, .embossed {
+    text-decoration: none;
+    letter-spacing: 2px;
     color: rgb(220, 20, 60);
     font-size: 18px;
     text-shadow: 1px 1px 1px rgb(128, 8, 32), -1px -1px rgba(240, 86, 117);
+}
+
+u {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
