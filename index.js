@@ -66,17 +66,16 @@ let colorModeSelected = 'blackBrush';
 const blackBtn = document.querySelector('.btn-black');
 blackBtn.addEventListener('click', () => {
     colorModeSelected = 'blackBrush';
-    blackBtn.classList.add('btn-pressed');
-    rainbowBtn.classList.remove('btn-pressed');
-    eraserBtn.classList.remove('btn-pressed');
 
+    removePressedAllBtn();
+    blackBtn.classList.add('btn-pressed');
 });
 
 const rainbowBtn = document.querySelector('.btn-rainbow');
 rainbowBtn.addEventListener('click', () => {
     colorModeSelected = 'rainbowBrush';
-    blackBtn.classList.remove('btn-pressed');
-    eraserBtn.classList.remove('btn-pressed');
+
+    removePressedAllBtn();
     rainbowBtn.classList.add('btn-pressed');
 });
 
@@ -84,39 +83,50 @@ const colorPicker = document.querySelector('#favcolor');
 colorPicker.addEventListener('change', () => {
     colorModeSelected = 'customBrush';
 
+    removePressedAllBtn();
+    blackBtn.classList.add('btn-pressed');
+
 });
 
 const eraserBtn = document.querySelector('.btn-eraser');
 eraserBtn.addEventListener('click', () => {
     colorModeSelected = 'eraser';
-    blackBtn.classList.remove('btn-pressed');
-    rainbowBtn.classList.remove('btn-pressed');
+
+    removePressedAllBtn();
     eraserBtn.classList.add('btn-pressed');
 });
+
+/////////////// Remove highlight of all buttons ////////////
+
+function removePressedAllBtn () {
+    blackBtn.classList.remove('btn-pressed');
+    rainbowBtn.classList.remove('btn-pressed');
+    eraserBtn.classList.remove('btn-pressed');
+}
+
 
 
 //////////////// Color Selector //////////////////////
 
 function colorSelect() {
 
+    switch (colorModeSelected) {
+        case 'blackBrush':
+            colorChosen = colorPicker.value;
+            break;
+        case 'rainbowBrush':
+            colorChosen = 'rainbowBrush';
+            break;
+        case 'customBrush':
+            colorChosen = colorPicker.value;
+            break;
+        case 'eraser':
+            colorChosen = '';
+            break;
 
-switch (colorModeSelected) {
-    case 'blackBrush':
-        colorChosen = colorPicker.value;
-        break;
-    case 'rainbowBrush':
-        colorChosen = 'rainbowBrush';
-        break;
-    case 'customBrush':
-        colorChosen = colorPicker.value;
-        break;
-    case 'eraser':
-        colorChosen = '';
-        break;
-
-    default:
-    console.log("problem choosing color");
-}
+        default:
+        console.log("problem choosing color");
+    }
 }
 
 ///////////////////////////////  Creates main grid //////////////////////////////////////
