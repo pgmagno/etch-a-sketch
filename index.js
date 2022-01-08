@@ -80,16 +80,11 @@ rainbowBtn.addEventListener('click', () => {
 });
 
 const colorPicker = document.querySelector('#favcolor');
-colorPicker.addEventListener('change', () => {
-    colorModeSelected = 'customBrush';
-});
-
 colorPicker.addEventListener('click', () => {
+    colorModeSelected = 'customBrush';
     removePressedAllBtn();
     blackBtn.classList.add('btn-pressed');
 });
-
-
 
 const eraserBtn = document.querySelector('.btn-eraser');
 eraserBtn.addEventListener('click', () => {
