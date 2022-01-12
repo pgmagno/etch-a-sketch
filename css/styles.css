@@ -297,3 +297,40 @@ u {
     text-decoration: underline;
     text-underline-offset: 3px;
 }
+
+/*      swatches */
+.swatches {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 25px;
+    margin: 10px 0 0;
+}
+
+.swatch-box {
+    height: 20px;
+    width: 20px;
+    background-color: #800820;
+    border: inset rgb(220, 20, 60) 2px;
+    margin: 3px;
+}
+
+.btn-add {
+    height: 20px;
+    width: 20px;
+    padding-left: 5px;
+    margin: 5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(190, 8, 39);
+    border: 2px outset #d40e35;
+    cursor: pointer;
+}
+
+.btn-add:active {
+    border: 2px inset #d40e35;
+}

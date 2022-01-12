@@ -66,7 +66,6 @@ let colorModeSelected = 'blackBrush';
 const blackBtn = document.querySelector('.btn-black');
 blackBtn.addEventListener('click', () => {
     colorModeSelected = 'blackBrush';
-
     removePressedAllBtn();
     blackBtn.classList.add('btn-pressed');
 });
@@ -74,7 +73,6 @@ blackBtn.addEventListener('click', () => {
 const rainbowBtn = document.querySelector('.btn-rainbow');
 rainbowBtn.addEventListener('click', () => {
     colorModeSelected = 'rainbowBrush';
-
     removePressedAllBtn();
     rainbowBtn.classList.add('btn-pressed');
 });
@@ -245,6 +243,7 @@ clearBtn.addEventListener('click', () => {
 
 });
 
+
 confirm.addEventListener('click', () => {
     destroyGrid();
     applyChanges();
@@ -283,4 +282,61 @@ gridBtn.addEventListener('click', () => {
         gridCells.forEach(function(element) {
             element.classList.toggle('gridborders');
         });
+});
+
+//////////////////////  Swatches ///////////////////////////
+
+const swatches = document.querySelector(".swatches");
+
+for(let i = 0; i < 14; i++) {
+    const swatchBox = document.createElement('div');
+    swatchBox.classList.add('swatch-box');
+    swatches.appendChild(swatchBox);
+}
+
+
+
+////////// add color to swatch /////////////
+const swatchBtnAdd = document.querySelector('.btn-add');
+
+
+const allSwatchBoxes = document.querySelectorAll('.swatch-box');
+
+let y = 0;
+
+let arrayFromSwatches = Array.from(allSwatchBoxes);
+
+
+
+let currentlySelectedSwatch = 0;
+
+swatchBtnAdd.addEventListener('click', () => {
+    for (var i = 0; i < arrayFromSwatches.length; i++) {
+        if (i === currentlySelectedSwatch) {
+            arrayFromSwatches[i].style["background-color"] = colorPicker.value;
+            arrayFromSwatches[i].setAttribute('data-color-info', colorPicker.value);
+        }
+    }
+
+    currentlySelectedSwatch++;
+
+    if(currentlySelectedSwatch >= arrayFromSwatches.length) {
+        currentlySelectedSwatch = 0;
+    }
+});
+
+
+
+allSwatchBoxes.forEach( box => {
+    box.addEventListener('click', () => {
+
+        removePressedAllBtn();
+        blackBtn.classList.add('btn-pressed');
+
+        colorModeSelected = 'blackBrush';
+        colorPicker.value = box.getAttribute('data-color-info');
+
+        console.log(`color picker: ${colorPicker.value}`);
+        console.log(`box info: ${box.getAttribute('color-info')}`);
+    });
 });
