@@ -40,6 +40,7 @@ body {
 .col {
     width: 15px;
     height: 15px;
+    transition: box-shadow 0.3s linear;
 }
 
 .col:hover {
@@ -64,7 +65,7 @@ body {
 
 .outer-border {
     border: outset 35px #d40e35;
-    border-radius: 25px;
+    border-radius: 38px;
     width: 600px;
     margin: auto;
     margin-top: 20px;
@@ -162,12 +163,20 @@ td, .misc-cell {
     text-align: center;
     background: rgb(190, 8, 39);
     background: linear-gradient(315deg, rgba(190, 8, 39, 1) 0%, rgba(212, 14, 48, 1) 100%);
-    display: table;
+    display: flex;
+    flex-direction: column;
     margin: 15px auto 0;
     padding: 15px 0;
     border: inset 2px #d40e35;
     border-radius: 5px;
     width: 500px;
+    transition: 0.3s ease-in-out;
+    height: 230px;
+    overflow: hidden;
+}
+
+.larger {
+    height: 360px;
 }
 
 .gridborders {
@@ -176,20 +185,11 @@ td, .misc-cell {
 
 .warning {
     padding: 15px;
-    display: block;
     margin: 15px auto 0;
     width: 350px;
     background-color: rgb(190, 8, 39);
     border: 2px outset #d40e35;
     border-radius: 10px;
-    transition: all 0.4s ease-in-out;
-}
-
-.hidden {
-    height: 0;
-    display: none;
-    overflow: hidden;
-    transition: all 0.4s ease-in-out;
 }
 
 .warning-msg {
@@ -315,6 +315,10 @@ u {
     background-color: #800820;
     border: inset rgb(220, 20, 60) 2px;
     margin: 3px;
+}
+
+.swatch-box-filled {
+    cursor: pointer;
 }
 
 .btn-add {

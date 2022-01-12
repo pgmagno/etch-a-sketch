@@ -21,9 +21,12 @@
 
             <div class="controls">
                 <h3 class="embossed" id="controls-title">Controls</h3>
-                <label for="width" class="embossed">No. of ⬜ </label>
-                <input type="range" min="1" max="100" value="50" class='width slider'>
-                <span class='width-value embossed'>50 x 50</span>
+                <div class="">
+                    <label for="width" class="embossed">No. of ⬜ </label>
+                    <input type="range" min="1" max="100" value="50" class='width slider'>
+                    <span class='width-value embossed'>50 x 50</span>
+                </div>
+
 
                 <table>
                     <tr>
@@ -57,6 +60,12 @@
 
                 <div class="swatches">
                     <div class="btn-add embossed">+</div>
+                </div>
+
+                <div class="warning hidden">
+                    <h3 class="warning-msg embossed">Do you want to discard changes?</h3>
+                    <button type="button" name="button" class="embossed warning-btn confirm-btn">Yes</button>
+                    <button type="button" name="button" class="embossed warning-btn escape-btn">Cancel</button>
                 </div>
 
             </div>

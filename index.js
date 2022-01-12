@@ -211,52 +211,30 @@ widthValue.addEventListener("change", () => {
 //////////////////// clear everything WARNING //////////////////////
 
 const clearBtn = document.querySelector('.clear-btn');
-const warning = document.createElement('div');
-const warningMsg = document.createElement('h3');
-const confirm = document.createElement('button');
-const escape = document.createElement('button');
+
+const warning = document.querySelector('.warning');
+const confirm = document.querySelector('.confirm-btn');
+const escape = document.querySelector('.escape-btn');
 const controlsDiv = document.querySelector('.controls');
 
-warning.classList.add('warning');
-warning.classList.add('hidden');
-
-warningMsg.classList.add('warning-msg');
-warningMsg.textContent = 'Do you want to discard changes?';
-warningMsg.classList.add('embossed');
-
-confirm.textContent = 'Yes';
-confirm.classList.add('warning-btn');
-confirm.classList.add('embossed');
-
-escape.textContent = 'Cancel';
-escape.classList.add('warning-btn');
-escape.classList.add('embossed');
 
 clearBtn.addEventListener('click', () => {
-
-    warning.appendChild(warningMsg);
-    warning.appendChild(confirm);
-    warning.appendChild(escape);
-
-    controlsDiv.appendChild(warning);
     warning.classList.toggle('hidden');
-
+    controlsDiv.classList.toggle('larger');
 });
-
 
 confirm.addEventListener('click', () => {
     destroyGrid();
     applyChanges();
-    removeWarning();
+    controlsDiv.classList.toggle('larger')
     drawGridBorders();
 });
 
-escape.addEventListener('click', removeWarning);
+escape.addEventListener('click',() => {
+    controlsDiv.classList.toggle('larger');
+});
 
 
-function removeWarning() {
-    warning.classList.add('hidden');
-}
 
 ///////////////// enable borders around divs (photoshop-like grid) //////////
 
@@ -279,7 +257,7 @@ gridBtn.addEventListener('click', () => {
     gridBtn.classList.toggle('btn-pressed');
 
     const gridCells = document.querySelectorAll('.col');
-        gridCells.forEach(function(element) {
+        gridCells.forEach( element => {
             element.classList.toggle('gridborders');
         });
 });
@@ -315,6 +293,7 @@ swatchBtnAdd.addEventListener('click', () => {
         if (i === currentlySelectedSwatch) {
             arrayFromSwatches[i].style["background-color"] = colorPicker.value;
             arrayFromSwatches[i].setAttribute('data-color-info', colorPicker.value);
+            arrayFromSwatches[i].classList.add('swatch-box-filled');
         }
     }
 
@@ -330,13 +309,15 @@ swatchBtnAdd.addEventListener('click', () => {
 allSwatchBoxes.forEach( box => {
     box.addEventListener('click', () => {
 
+        if(box.hasAttribute('data-color-info')) {
+
         removePressedAllBtn();
         blackBtn.classList.add('btn-pressed');
 
         colorModeSelected = 'blackBrush';
         colorPicker.value = box.getAttribute('data-color-info');
 
-        console.log(`color picker: ${colorPicker.value}`);
-        console.log(`box info: ${box.getAttribute('color-info')}`);
+}
+
     });
 });
