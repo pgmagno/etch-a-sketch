@@ -40,7 +40,7 @@ body {
 .col {
     width: 15px;
     height: 15px;
-    transition: box-shadow 0.3s linear;
+    transition: 0.3s linear;
 }
 
 .col:hover {
