@@ -419,7 +419,7 @@ function erasePartsOfCanvas () {
             }
         }
     }
-    }
+}
 
 
 function downloadCanvasAsImage() {
