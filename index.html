@@ -23,8 +23,8 @@
                 <h3 class="embossed" id="controls-title">Controls</h3>
                 <div class="">
                     <label for="width" class="embossed">No. of ⬜ </label>
-                    <input type="range" min="1" max="100" value="50" class='width slider'>
-                    <span class='width-value embossed'>50 x 50</span>
+                    <input type="range" min="1" max="64" value="32" class='width slider'>
+                    <span class='width-value embossed'>32 x 32</span>
                 </div>
 
 
@@ -75,6 +75,15 @@
         </div>
 
         <hr class='hr-1'>
+
+        <div class="export">
+            <button type="button" name="button" class='warning-btn export-btn embossed'>Export</button>
+        </div>
+
+        <div class="canvas-div">
+            <canvas class='export-drawing' width="500" height="500"></canvas>
+
+        </div>
 
         <footer>
 

@@ -258,13 +258,20 @@ hr {
     border-radius: 5px;
 }
 
-.hr-1 {}
+/* Export*/
+.export-drawing {
+    display: none;
+}
+
+.export {
+    margin: 10px auto 10px;
+}
 
 /* footer area */
 footer {
     color: white;
     width: 500px;
-    margin: 15px auto 5px;
+    margin: 0px auto 5px;
 }
 
 .pgsmagno {
@@ -277,7 +284,7 @@ footer {
 }
 
 footer, footer p {
-    margin: 15px auto 0;
+    margin: 10px auto 0;
     font-size: 16px;
 }
 
