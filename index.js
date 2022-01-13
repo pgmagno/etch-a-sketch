@@ -412,10 +412,8 @@ function erasePartsOfCanvas () {
 
         for(let i = 0; i < gridSize; i++) { // rows
             for(let j = 0; j < gridSize; j++) { //cols
-console.log('hey1');
                 if(arrayOfAllSquares[w].style['background-color'] === 'transparent') {
                     ctx.clearRect(sizeOfSquare * j, sizeOfSquare * i, sizeOfSquare, sizeOfSquare); // x, y, length of X, length of Y.
-                    console.log('hey2');
                 }
                 w++;   // absolute counter increment notwithstanding i and j
             }
