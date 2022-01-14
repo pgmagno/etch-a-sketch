@@ -384,6 +384,15 @@ function draw() {
 
         let w = 0; //w is used as an absolute counter, because squares array is not devided in rows or cols
 
+        // this is a matrix loop. i is the number of rows (=gridSize), j is the number of columns (=gridSize)
+        // the idea being that we create a square of the same size of the grid square we used in the painting area
+        // we populate the canvas element with this square. Every square takes the original grid square background-color value
+        // to draw a square of that color onto the canvas.
+        // the values of j and i are inversed (j = x axis, i = Y axis) when compared to typical matrix loops
+        // the reason is that we are painting 'horizontally', we create a row
+        // and paint left to right all the elements of the row, i.e, one element
+        // of each column, after that we move on to the next row.
+
         for(let i = 0; i < gridSize; i++) { // rows
             for(let j = 0; j < gridSize; j++) { //cols
 
@@ -409,6 +418,13 @@ function erasePartsOfCanvas () {
         let ctx = canvas.getContext('2d');
 
         let w = 0; //w is used as an absolute counter, because squares array is not devided in rows or cols
+
+        // same idea of the draw() but uses it to discover 'erased' areas and
+        // uses getContext 2d own clearRect method to remove these areas
+        // from the canvas before exporting.
+        // I couldn't get it to simply paint over transparent values, so this was
+        // a compromise that ended up working almost 99% well, since it leaves
+        // very thin pixel lines (don't know why)
 
         for(let i = 0; i < gridSize; i++) { // rows
             for(let j = 0; j < gridSize; j++) { //cols
